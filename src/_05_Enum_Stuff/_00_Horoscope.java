@@ -11,4 +11,15 @@ public class _00_Horoscope {
 	
 	// 3. Make a main method to test your method
 	
+	public static void main(String[] args) {
+		
+	}
+	
+	public static void Zodiac(){
+		Zodiac();
+		
+		
+		
+	}
+	
 }

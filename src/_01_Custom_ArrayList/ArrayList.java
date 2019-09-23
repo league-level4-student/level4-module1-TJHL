@@ -58,18 +58,23 @@ public class ArrayList <T>{
 		}
 		
 		for (int i = loc; i < tempRemove.length; i++) {
-			tempRemove[i] = inputArray[i];
+			tempRemove[i] = inputArray[i+1];
 		}
-		inputArray = tempRemove;
-		
+		inputArray = tempRemove;		
 	}
 	
 	public boolean contains(T val) {
-		
+		for (int i = 0; i < inputArray.length; i++) {
+			if(inputArray[i]== val) {
+				return true;
+				
+			}
+		}
+				
 		return false;
 	}
 	
 	public int size() {
-		return 0;
+		return inputArray.length;
 	}
 }
