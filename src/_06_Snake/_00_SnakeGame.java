@@ -75,7 +75,7 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 
 	public void startGame() {
 		//1. Save the instructions for the game in the following string variable.
-		String instructions = "";
+		String instructions = "Play the game";
 		
 		String[] options = new String[] { "Expert", "Moderate", "Beginner" };
 		int input = JOptionPane.showOptionDialog(null, instructions, "Snake", 0, -1, null, options, 0);
@@ -86,7 +86,22 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 		//   Use timer.setDelay(delay) with different numbers to change the speed
 		//   of the game. The smaller the number, the faster it goes.
 
+		switch (choice) {			/////////////////////////
+		case "Beginner":
+			timer.setDelay(1);
+		break;
+		case "Moderate":
+			timer.setDelay(1);
+		break;
+		case "Expert":
+			timer.setDelay(1);
+		break;
+		default:
+			timer.setDelay(1);
+		break;
+		}
 		//3. start the timer
+		timer.start();
 	}
 
 	public static void main(String[] args) {
@@ -94,21 +109,36 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 	}
 
 	@Override
-	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
-
-	}
+	public void keyTyped(KeyEvent e) {}
 
 	@Override
 	public void keyPressed(KeyEvent e) {
 		//1. Use a switch statement on e.getKeyCode()
 		//   to determine which key was pressed.
+		switch(e.getKeyCode()) {
 		
 		// if an arrow key is pressed, set the snake's 
 		// direction accordingly
 		
+		case e.VK_UP:
+			Direction = Direction.UP;
+		break;
+		case e.VK_DOWN:
+			Direction = Direction.DOWN;
+		break;
+		case e.VK_LEFT:
+			Direction = Direction.LEFT;
+		break;
+		case e.VK_RIGHT:
+			Direction = Direction.RIGHT;
+		break;
+		
 		// if the space key is pressed, call the snake's feed method
 		
+		case e.VK_SPACE:
+			snake.feed();			/////////
+		break;
+		}
 	}
 
 	private void setFoodLocation() {
@@ -134,9 +164,7 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 	}
 
 	@Override
-	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
-	}
+	public void keyReleased(KeyEvent e) {}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
