@@ -36,7 +36,26 @@ public class Snake {
 	public void update() {
 		//1. use a switch statement to check on the currentDirection
 		//   of the snake and calculate its next x and y position.
+		int nextX=0;
+		int nextY=0;
+		Location a = new Location(nextX, nextY);
+		switch(currentDirection) {
+		case UP:
+			nextY=nextY+1;
+		break;
 		
+		case DOWN:
+			nextY=nextY-1;
+		break;
+		
+		case LEFT:
+			nextX=nextX-1;
+		break;
+			
+		case RIGHT:
+			nextX=nextX+1;
+		break;
+		}
 
 		//2. Iterate through the SnakeSegments in reverse order
 		//2a. Update each snake segment to the location of the segment 
@@ -55,15 +74,16 @@ public class Snake {
 		//   set canMove equal to false.
 		//   make sure the snake cannot completely reverse directions.
 		
+		
 	}
 
 	public void reset(Location loc) {
 		//1. clear the snake
-		
+		snake.clear();
 		//2. set the location of the head
-		
+		head.setLocation(loc);
 		//3. add the head to the snake
-		
+		snake.add(head);
 	}
 
 	public boolean isOutOfBounds() {
