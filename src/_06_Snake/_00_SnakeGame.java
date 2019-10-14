@@ -88,21 +88,21 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 
 		switch (choice) {			/////////////////////////
 		case "Beginner":
-			timer.setDelay(1);
+			timer.setDelay(500);
 		break;
 		case "Moderate":
-			timer.setDelay(1);
+			timer.setDelay(250);
 		break;
 		case "Expert":
-			timer.setDelay(1);
+			timer.setDelay(100);
 		break;
 		default:
-			timer.setDelay(1);
+			timer.setDelay(100);
 		break;
 		}
 		//3. start the timer
 		timer.start();
-	}
+	}	
 
 	public static void main(String[] args) {
 		new _00_SnakeGame();
@@ -115,29 +115,29 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 	public void keyPressed(KeyEvent e) {
 		//1. Use a switch statement on e.getKeyCode()
 		//   to determine which key was pressed.
-		
-		switch(e.getKeyText(e.getKeyCode())) {
+	
+		switch(e.getKeyCode()) {
 		
 		// if an arrow key is pressed, set the snake's 
 		// direction accordingly
 		
-		case "UP":
+		case 38:
 			snake.setDirection(Direction.UP);
 			System.out.println("UP");
 		break;
-		case "DOWN":
+		case 40:
 			snake.setDirection(Direction.DOWN);
 		break;
-		case "LEFT":
+		case 37:
 			snake.setDirection(Direction.LEFT);
 		break;
-		case "RIGHT":
+		case 39:
 			snake.setDirection(Direction.RIGHT);
 		break;
 		
 		// if the space key is pressed, call the snake's feed method
 		
-		case "SPACE":
+		case 32:
 			snake.feed();			
 		break;
 		}
@@ -170,11 +170,11 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 		//   reset the snake and the food and start the timer
 		//   else, exit the game
 		if(choice == "Yes") {
-			snake.reset(LOCATION);
+			snake.reset(new Location(WIDTH / 2, HEIGHT / 2));
 			timer.restart();
 		}
 		if(choice == "No") {
-			
+			JOptionPane.showMessageDialog(null, "loser");
 		}
 		
 	}
