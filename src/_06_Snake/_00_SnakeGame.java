@@ -122,22 +122,26 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 		// direction accordingly
 		
 		case 38:
-			snake.setDirection(Direction.UP);
 			System.out.println("UP");
+			snake.setDirection(Direction.UP);
 		break;
 		case 40:
+			System.out.println("DOWN");
 			snake.setDirection(Direction.DOWN);
 		break;
 		case 37:
+			System.out.println("LEFT");
 			snake.setDirection(Direction.LEFT);
 		break;
 		case 39:
+			System.out.println("RIGHT");
 			snake.setDirection(Direction.RIGHT);
 		break;
 		
 		// if the space key is pressed, call the snake's feed method
 		
 		case 32:
+			System.out.println("SPACE");
 			snake.feed();			
 		break;
 		}
@@ -145,7 +149,9 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 
 	private void setFoodLocation() {
 		//1. Create a new Location object that is set to a random location
-		Location newFoodLocation = new Location(2,3);
+		int newFoodX = new Random().nextInt(WIDTH);
+		int newFoodY = new Random().nextInt(HEIGHT);
+		Location newFoodLocation = new Location(newFoodX,newFoodY);
 		//2. set the foodLocation variable equal to the Location object you just created.
 		//   use the snake's isLocationOnSnake method to make sure you don't put the food on the snake
 		
@@ -175,6 +181,7 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 		}
 		if(choice == "No") {
 			JOptionPane.showMessageDialog(null, "loser");
+			
 		}
 		
 	}
@@ -197,7 +204,7 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 		}
 		//3. if the location of the head is equal to the location of the food,
 		// 	 feed the snake and set the food location
-		if(snake.getHeadLocation()==foodLocation) {
+		if(snake.getHeadLocation().equals(foodLocation)) {
 			snake.feed();
 			setFoodLocation();			
 		}
