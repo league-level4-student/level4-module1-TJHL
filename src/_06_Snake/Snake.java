@@ -133,13 +133,12 @@ public class Snake {
 	public boolean isHeadCollidingWithBody() {
 		//1. complete the method so it returns true if the head is located
 		//   in the same location as any other body segment
-		//if(snake.size()>0) {
-			for (int i = 1; i < snake.size(); i++) {
-				if(head.getLocation().equals(snake.get(i).getLocation())) {
-					return true;
-				}
+		for (int i = 1; i < snake.size(); i++) {
+			if(head.getLocation().equals(snake.get(i).getLocation())) {
+				return true;
 			}
-		//}
+		}
+		
 		return false;
 	}
 
