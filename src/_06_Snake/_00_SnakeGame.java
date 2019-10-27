@@ -22,8 +22,8 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 	public static final Color BORDER_COLOR = Color.WHITE;
 	public static final Color BACKGROUND_COLOR = Color.BLACK;
 	public static final Color FOOD_COLOR = Color.RED;
-	public static final int WIDTH = 15;
-	public static final int HEIGHT = 12;
+	public static final int WIDTH = 30;//15
+	public static final int HEIGHT = 18;//12
 	public static final int WINDOW_SCALE = 50;
 	public static final int WINDOW_WIDTH = WINDOW_SCALE * WIDTH;
 	public static final int WINDOW_HEIGHT = WINDOW_SCALE * HEIGHT;
@@ -170,18 +170,19 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 		//3. ask them if they want to play again.
 		String[] options = new String[] { "Yes", "No"};
 		int input = JOptionPane.showOptionDialog(null, "Play Again", "Snake", 0, -1, null, options, 0);
-
-		String choice = options[input];
+		//1 == no, 0 == yes
+		
+		//String choice = options[input];
 		//4. if they want to play again
 		//   reset the snake and the food and start the timer
 		//   else, exit the game
-		if(choice == "Yes") {
+		if(input == 0) {
 			snake.reset(new Location(WIDTH / 2, HEIGHT / 2));
 			timer.restart();
 		}
-		if(choice == "No") {
+		else {
 			JOptionPane.showMessageDialog(null, "loser");
-			
+			System.exit(0);
 		}
 		
 	}
